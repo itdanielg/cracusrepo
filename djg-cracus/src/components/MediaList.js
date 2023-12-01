@@ -1,8 +1,8 @@
 import MediaItem from './MediaItem'
 
 const MediaList = ({videos}) => {
-    const renderedList = videos.map(video => {
-        return <MediaItem video={video} />
+    const renderedList = videos.map((video, idx) => {
+        return <MediaItem video={video} key={idx} />
     })
 
     return (
