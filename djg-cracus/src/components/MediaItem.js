@@ -5,7 +5,7 @@ const MediaItem = ({video}) => {
                 <ul>
                     <div>Creator: {video.user}</div>
                     <div>URL: {video.pageURL}</div>
-                    <div>Number of views: {video.pageURL}</div>
+                    <div>Number of views: {video.views}</div>
                 </ul>
             </div>
         </>
