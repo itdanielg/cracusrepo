@@ -1,9 +1,13 @@
 
 import {useState} from 'react'
+import useUpdateLogger from '../hooks/use-update-logger'
 
 const Search = ({addMe, onSearchBarChange}) => {
     // searchTerm = variable, setSearchTerm = function
     const [searchTerm, setSearchTerm] = useState('')
+
+    useUpdateLogger(searchTerm, 'Search Term')
+
     const onInputChange = (searchParam) => {
         setSearchTerm(searchParam)
         onSearchBarChange(searchParam)
