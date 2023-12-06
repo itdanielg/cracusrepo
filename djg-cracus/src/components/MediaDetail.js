@@ -4,7 +4,7 @@ const MediaDetail = ({selectedVideo}) => {
         }
     
         return (
-            <video src={selectedVideo.videos.tiny.url} controls/>
+            <video width="500" height="500" src={selectedVideo.videos.tiny.url} controls/>
         )
 }
 

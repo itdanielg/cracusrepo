@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react'
+import {BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 
 // components
 import Search from './Search'
@@ -33,16 +34,33 @@ const App = () => {
     // }
 
     return (
-        <>
+        <BrowserRouter>
             <div>
-                <h1>React App</h1>
-                <Search onSearchBarChange={getVideosFromSearch} addMe={1 + 4} firstName="Nicole" lastName="Kidmans" />
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/clicker">Clicker</Link></li>
+                    <li><Link to="/test">Testing</Link></li>
+                </ul>
             </div>
-            <div>
-                <MediaDetail selectedVideo={selectedVideo} />
-            </div>
-            <MediaList videos={videos} onVideoSelect={videoParam => {setSelectedVideo(videoParam)}} />
-        </>
+            <Switch>
+                <Route path="/test" >
+                    <div>Here is some test JSX</div>
+                </Route>
+            </Switch>
+            <Switch>
+                <Route path="/" exact>
+                    <div>
+                        <h1>React App</h1>
+                        <Search onSearchBarChange={getVideosFromSearch} addMe={1 + 4} firstName="Nicole" lastName="Kidmans" />
+                    </div>
+                    <div>
+                        <MediaDetail selectedVideo={selectedVideo} />
+                    </div>
+                    <MediaList videos={videos} onVideoSelect={videoParam => {setSelectedVideo(videoParam)}} />
+                </Route>
+            </Switch>
+           
+        </BrowserRouter>
     )
 }
 
